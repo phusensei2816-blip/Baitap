@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- AppCompat để đổi ngôn ngữ theo từng ứng dụng hoạt động trên mọi phiên bản Android -->
+    <style name="Theme.UthAuth" parent="Theme.AppCompat.Light.NoActionBar" />
+</resources>

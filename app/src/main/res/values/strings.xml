@@ -1,0 +1,161 @@
+<resources>
+    <string name="app_name">UTH Todo</string>
+
+    <!-- Đăng nhập -->
+    <string name="login_title">Chào mừng đến với\nUTH Todo</string>
+    <string name="login_subtitle">Đăng nhập để lưu công việc và đồng bộ trên mọi thiết bị của bạn.</string>
+    <string name="login_google">Tiếp tục với Google</string>
+    <string name="login_or">hoặc</string>
+    <string name="login_guest">Dùng thử không cần tài khoản</string>
+    <string name="login_terms">Khi tiếp tục, bạn đồng ý với Điều khoản sử dụng và Chính sách quyền riêng tư của UTH Todo.</string>
+    <string name="login_success_named">Đăng nhập thành công! Xin chào %1$s</string>
+    <string name="login_success_guest">Đăng nhập thành công! Chào mừng bạn</string>
+
+    <!-- Lỗi đăng nhập -->
+    <string name="err_cancelled">Bạn đã huỷ đăng nhập.</string>
+    <string name="err_no_credential">Không tìm thấy tài khoản Google trên thiết bị. Hãy thêm tài khoản trong Cài đặt rồi thử lại.</string>
+    <string name="err_credential">Không thể lấy thông tin từ Google. Vui lòng thử lại.</string>
+    <string name="err_network_auth">Không có kết nối mạng. Hãy kiểm tra Internet rồi thử lại.</string>
+    <string name="err_invalid_credential">Thông tin đăng nhập không hợp lệ hoặc đã hết hạn.</string>
+    <string name="err_firebase_auth">Đăng nhập thất bại (%1$s).</string>
+    <string name="err_unknown">Đã xảy ra lỗi không xác định.</string>
+
+    <!-- Người dùng -->
+    <string name="guest_name">Khách</string>
+    <string name="guest_initial">K</string>
+    <string name="greeting_named">Chào %1$s!</string>
+    <string name="greeting_guest">Chào bạn!</string>
+
+    <!-- Trang chủ -->
+    <string name="progress_today">Tiến độ hôm nay</string>
+    <string name="progress_msg_all">Tuyệt vời! Bạn đã xong tất cả.</string>
+    <string name="progress_msg_half">Đã hơn nửa chặng, cố lên!</string>
+    <string name="progress_msg_start">Bắt đầu thôi nào!</string>
+    <string name="category_study">Học tập</string>
+    <string name="category_life">Cuộc sống</string>
+    <string name="section_today">Việc hôm nay</string>
+    <string name="see_all">Xem tất cả</string>
+    <string name="empty_tasks">Chưa có việc nào. Nhấn nút + để thêm việc đầu tiên.</string>
+    <string name="done_desc">Đã xong</string>
+    <string name="coming_soon">Tính năng đang được phát triển</string>
+    <plurals name="tasks_left">
+        <item quantity="other">%1$d việc còn lại</item>
+    </plurals>
+    <plurals name="tasks_progress">
+        <item quantity="other">%1$d/%2$d việc</item>
+    </plurals>
+
+    <!-- Thanh điều hướng -->
+    <string name="tab_home">Trang chủ</string>
+    <string name="tab_list">Danh sách</string>
+    <string name="tab_notifications">Thông báo</string>
+    <string name="tab_settings">Cài đặt</string>
+    <string name="add_task_desc">Thêm việc mới</string>
+
+    <!-- Thêm việc -->
+    <string name="add_title">Thêm việc mới</string>
+    <string name="add_name">Tên công việc</string>
+    <string name="add_time">Giờ (HH:mm)</string>
+    <string name="add_time_error">Nhập giờ theo dạng 14:30</string>
+    <string name="add_confirm">Thêm</string>
+    <string name="cancel">Huỷ</string>
+
+    <!-- Lỗi tải dữ liệu từ API -->
+    <string name="load_error_network">Không có kết nối mạng. Kiểm tra Internet rồi thử lại.</string>
+    <string name="load_error_server">Máy chủ đang gặp sự cố (mã %1$d).</string>
+    <string name="load_error_unauthorized">API từ chối truy cập. Kiểm tra API_TOKEN trong local.properties.</string>
+    <string name="load_error_unknown">Đã có lỗi xảy ra. Vui lòng thử lại.</string>
+    <string name="retry">Thử lại</string>
+
+    <!-- Hồ sơ -->
+    <string name="profile_title">Hồ sơ</string>
+    <string name="profile_back">Cài đặt</string>
+    <string name="back_desc">Quay lại</string>
+    <string name="no_email">Chưa liên kết email</string>
+    <string name="badge_google">Đã liên kết tài khoản Google</string>
+    <string name="badge_guest">Tài khoản khách</string>
+    <string name="stat_done">Việc đã xong</string>
+    <string name="stat_pending">Đang chờ</string>
+    <string name="stat_percent">Hoàn thành</string>
+    <string name="chart_title">Tuần này</string>
+    <string name="chart_subtitle">Việc xong mỗi ngày</string>
+    <string name="action_invite">Mời bạn bè dùng UTH Todo</string>
+    <string name="action_test_error">Gửi lỗi thử (Crashlytics)</string>
+    <string name="toast_test_error">Đã gửi lỗi thử lên Crashlytics</string>
+    <string name="signout">Đăng xuất</string>
+    <string name="signout_title">Đăng xuất?</string>
+    <string name="signout_msg">Bạn sẽ cần đăng nhập lại để tiếp tục sử dụng.</string>
+    <string name="signout_guest_msg">Bạn đang dùng tài khoản khách. Đăng xuất sẽ không thể khôi phục dữ liệu này.</string>
+    <string name="invite_text">Mình đang dùng UTH Todo để quản lý công việc, bạn thử xem nhé!</string>
+    <string name="invite_chooser">Mời bạn bè</string>
+
+    <!-- Xin quyền -->
+    <string name="perm_location_title">Vị trí</string>
+    <string name="perm_location_msg">Cho phép ứng dụng truy cập vị trí của bạn khi đang sử dụng?</string>
+    <string name="perm_notification_title">Thông báo</string>
+    <string name="perm_notification_msg">Hãy bật thông báo để nhận cập nhật và lời nhắc công việc.</string>
+    <string name="perm_camera_title">Máy ảnh</string>
+    <string name="perm_camera_msg">Chúng tôi cần quyền dùng máy ảnh để quét mã QR.</string>
+    <string name="perm_allow">Cho phép</string>
+    <string name="perm_turn_on">Bật</string>
+    <string name="perm_skip">Để sau</string>
+
+    <!-- Thông báo đẩy -->
+    <string name="notif_channel_name">Thông báo chung</string>
+
+    <string-array name="weekday_short">
+        <item>T2</item>
+        <item>T3</item>
+        <item>T4</item>
+        <item>T5</item>
+        <item>T6</item>
+        <item>T7</item>
+        <item>CN</item>
+    </string-array>
+
+    <!-- Danh sách -->
+    <string name="list_title">Danh sách</string>
+    <plurals name="tasks_pending">
+        <item quantity="other">%1$d việc chưa xong</item>
+    </plurals>
+    <string name="list_search_hint">Tìm công việc</string>
+    <string name="clear_desc">Xóa nội dung tìm kiếm</string>
+    <string name="filter_all">Tất cả</string>
+    <string name="section_todo">CẦN LÀM</string>
+    <string name="section_done">ĐÃ XONG</string>
+    <string name="list_no_results">Không có công việc nào phù hợp.</string>
+
+    <!-- Hạn chót & ưu tiên -->
+    <string name="due_today">Hôm nay</string>
+    <string name="due_tomorrow">Ngày mai</string>
+    <string name="due_this_week">Tuần này</string>
+    <string name="due_format">%1$s, %2$s</string>
+    <string name="priority_low">Ưu tiên thấp</string>
+    <string name="priority_medium">Ưu tiên vừa</string>
+    <string name="priority_high">Ưu tiên cao</string>
+    <string name="priority_badge_urgent">Gấp</string>
+
+    <!-- Chi tiết -->
+    <string name="detail_edit">Sửa</string>
+    <string name="detail_due">Hạn chót</string>
+    <string name="detail_remind">Nhắc nhở</string>
+    <string name="detail_remind_15">Trước 15 phút</string>
+    <string name="detail_remind_off">Không nhắc</string>
+    <string name="detail_note">Ghi chú</string>
+    <string name="detail_note_empty">Chưa có ghi chú</string>
+    <string name="detail_subtasks">Việc nhỏ</string>
+    <string name="detail_add_subtask">Thêm việc nhỏ</string>
+    <string name="detail_mark_done">Đánh dấu hoàn thành</string>
+    <string name="detail_mark_undone">Đánh dấu chưa xong</string>
+    <string name="detail_delete">Xóa công việc</string>
+    <string name="detail_delete_title">Xóa công việc?</string>
+    <string name="detail_delete_msg">Công việc “%1$s” sẽ bị xóa và không thể khôi phục.</string>
+    <string name="detail_deleted">Đã xóa công việc</string>
+    <string name="detail_not_found">Không tìm thấy công việc này.</string>
+    <string name="edit_title">Sửa công việc</string>
+    <string name="edit_save">Lưu</string>
+    <string name="subtask_edit_title">Sửa việc nhỏ</string>
+    <string name="subtask_name">Tên việc nhỏ</string>
+    <string name="subtask_edit_desc">Sửa việc nhỏ</string>
+    <string name="subtask_delete_desc">Xóa việc nhỏ</string>
+</resources>

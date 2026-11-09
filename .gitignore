@@ -1,0 +1,15 @@
+*.iml
+.gradle/
+/local.properties
+/.idea/
+.DS_Store
+/build/
+/captures
+.externalNativeBuild
+.cxx
+app/build/
+# Khoá/bí mật không đưa lên GitHub
+*.jks
+*.keystore
+# Bỏ comment dòng dưới nếu repo công khai (file chứa API key của Firebase project)
+# app/google-services.json
