@@ -4,12 +4,17 @@ import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.PATCH
+import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface TaskApi {
     /** Tải mọi việc khi mở màn hình Trang chủ / Danh sách. */
     @GET("mock/teach/tasks")
     suspend fun getTasks(): List<TaskDto>
+
+    /** Màn "Việc mới": tạo công việc. */
+    @POST("mock/teach/tasks")
+    suspend fun createTask(@Body body: TaskCreateDto)
 
     /** Mở khi bấm một việc (màn Chi tiết). */
     @GET("mock/teach/tasks/{id}")

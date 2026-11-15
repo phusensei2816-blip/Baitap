@@ -10,10 +10,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.uth.uthauth.UthAuthApp
+import com.uth.uthauth.ui.add.AddTaskRoute
 import com.uth.uthauth.ui.auth.LoginRoute
 import com.uth.uthauth.ui.detail.DetailRoute
 import com.uth.uthauth.ui.home.HomeRoute
 import com.uth.uthauth.ui.list.ListRoute
+import com.uth.uthauth.ui.notifications.NotificationsRoute
 import com.uth.uthauth.ui.profile.ProfileRoute
 
 @Composable
@@ -31,8 +33,14 @@ fun AppNavHost(
         onDispose { navController.removeOnDestinationChangedListener(listener) }
     }
 
+    // Các điểm đến dùng chung giữa nhiều màn hình
     val openTask: (String) -> Unit = { id -> navController.navigate(Screen.Detail.createRoute(id)) }
     val openProfile: () -> Unit = { navController.navigate(Screen.Profile.route) }
+    val openAdd: () -> Unit = { navController.navigate(Screen.Add.route) }
+    val openList: () -> Unit = { navController.navigate(Screen.List.route) { launchSingleTop = true } }
+    val openNotifications: () -> Unit =
+        { navController.navigate(Screen.Notifications.route) { launchSingleTop = true } }
+    val backToHome: () -> Unit = { navController.popBackStack(Screen.Home.route, inclusive = false) }
 
     NavHost(navController = navController, startDestination = startDestination) {
 
@@ -49,7 +57,9 @@ fun AppNavHost(
         composable(Screen.Home.route) {
             HomeRoute(
                 onOpenProfile = openProfile,
-                onOpenList = { navController.navigate(Screen.List.route) { launchSingleTop = true } },
+                onOpenList = openList,
+                onOpenNotifications = openNotifications,
+                onOpenAdd = openAdd,
                 onOpenTask = openTask,
             )
         }
@@ -57,9 +67,24 @@ fun AppNavHost(
         composable(Screen.List.route) {
             ListRoute(
                 onOpenTask = openTask,
-                onOpenHome = { navController.popBackStack(Screen.Home.route, inclusive = false) },
+                onOpenHome = backToHome,
+                onOpenNotifications = openNotifications,
+                onOpenAdd = openAdd,
                 onOpenProfile = openProfile,
             )
+        }
+
+        composable(Screen.Notifications.route) {
+            NotificationsRoute(
+                onOpenHome = backToHome,
+                onOpenList = openList,
+                onOpenAdd = openAdd,
+                onOpenProfile = openProfile,
+            )
+        }
+
+        composable(Screen.Add.route) {
+            AddTaskRoute(onBack = { navController.popBackStack() })
         }
 
         composable(

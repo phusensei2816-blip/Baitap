@@ -55,3 +55,7 @@
 
 - Tầng dữ liệu: `data/remote/TaskApi.kt`, `data/task/ApiTaskRepository.kt` (cập nhật lạc quan, lỗi thì hoàn tác).
 - API mock luôn trả mẫu cố định nên repository giữ lớp phủ thay đổi trong phiên chạy (xem chú thích trong code).
+
+## Tuần 04 – Việc mới (MVVM + API) & Thông báo (MVVM)
+- `ui/add/`: màn "Việc mới" – `AddTaskUiState` (state), `AddTaskViewModel` (logic, gọi `POST /mock/teach/tasks`), `AddTaskScreen` (View).
+- `ui/notifications/`: màn "Thông báo" – ViewModel tạo danh sách thông báo, **sau 10 giây về rỗng → emptyView**; nút "Đánh dấu đã đọc".

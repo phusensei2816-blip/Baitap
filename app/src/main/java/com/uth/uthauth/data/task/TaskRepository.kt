@@ -2,7 +2,7 @@ package com.uth.uthauth.data.task
 
 import com.uth.uthauth.domain.model.DayStat
 import com.uth.uthauth.domain.model.LoadState
-import com.uth.uthauth.domain.model.TaskCategory
+import com.uth.uthauth.domain.model.NewTask
 import com.uth.uthauth.domain.model.TaskChange
 import com.uth.uthauth.domain.model.TodoTask
 import kotlinx.coroutines.flow.Flow
@@ -31,5 +31,6 @@ interface TaskRepository {
     /** DELETE /tasks/{id}. */
     suspend fun delete(id: String): Result<Unit>
 
-    suspend fun add(title: String, category: TaskCategory, time: String)
+    /** POST /tasks – tạo việc mới từ màn "Việc mới". */
+    suspend fun create(task: NewTask): Result<Unit>
 }

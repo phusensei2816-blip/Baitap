@@ -1,5 +1,6 @@
 package com.uth.uthauth.data.remote
 
+import com.uth.uthauth.domain.model.NewTask
 import com.uth.uthauth.domain.model.Subtask
 import com.uth.uthauth.domain.model.TaskCategory
 import com.uth.uthauth.domain.model.TaskChange
@@ -59,4 +60,31 @@ fun TaskChange.toDto() = TaskPatchDto(
     note = note,
     done = done,
     subtasks = subtasks?.map { SubtaskDto(it.title, it.done) },
+)
+
+/**
+ * Body của POST /mock/teach/tasks. Cố ý KHÔNG đặt giá trị mặc định cho các trường
+ * để kotlinx.serialization luôn gửi đủ (encodeDefaults = false sẽ bỏ qua trường mang giá trị mặc định).
+ */
+@Serializable
+data class TaskCreateDto(
+    val title: String,
+    val note: String,
+    val category: String,
+    val date: String,
+    val time: String,
+    val priority: String,
+    val remind: Boolean,
+    val done: Boolean,
+)
+
+fun NewTask.toDto() = TaskCreateDto(
+    title = title,
+    note = note,
+    category = category.name.lowercase(),
+    date = date,
+    time = time,
+    priority = priority.name.lowercase(),
+    remind = remind,
+    done = false,
 )

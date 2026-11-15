@@ -39,7 +39,6 @@ import com.uth.uthauth.ui.AppViewModelProvider
 import com.uth.uthauth.ui.components.AdBanner
 import com.uth.uthauth.ui.components.BottomTab
 import com.uth.uthauth.ui.components.UthBottomBar
-import com.uth.uthauth.ui.home.components.AddTaskDialog
 import com.uth.uthauth.ui.home.components.CategoryCard
 import com.uth.uthauth.ui.home.components.HomeHeader
 import com.uth.uthauth.ui.home.components.LoadErrorCard
@@ -52,12 +51,13 @@ import com.uth.uthauth.ui.home.components.TaskSkeleton
 fun HomeRoute(
     onOpenProfile: () -> Unit,
     onOpenList: () -> Unit,
+    onOpenNotifications: () -> Unit,
+    onOpenAdd: () -> Unit,
     onOpenTask: (String) -> Unit,
     viewModel: HomeViewModel = viewModel(factory = AppViewModelProvider.Factory),
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val context = LocalContext.current
-    var showAddDialog by rememberSaveable { mutableStateOf(false) }
 
     val comingSoonText = stringResource(R.string.coming_soon)
     val comingSoon = { Toast.makeText(context, comingSoonText, Toast.LENGTH_SHORT).show() }
@@ -69,30 +69,20 @@ fun HomeRoute(
     HomeScreen(
         state = state,
         onToggleTask = viewModel::toggleTask,
-        onAddClick = { showAddDialog = true },
+        onAddClick = onOpenAdd,
         onAvatarClick = onOpenProfile,
         onTabClick = { tab ->
             when (tab) {
                 BottomTab.HOME -> Unit
                 BottomTab.LIST -> onOpenList()
+                BottomTab.NOTIFICATIONS -> onOpenNotifications()
                 BottomTab.SETTINGS -> onOpenProfile()
-                BottomTab.NOTIFICATIONS -> comingSoon()
             }
         },
         onComingSoon = comingSoon,
         onRetry = viewModel::refresh,
         onOpenTask = onOpenTask,
     )
-
-    if (showAddDialog) {
-        AddTaskDialog(
-            onDismiss = { showAddDialog = false },
-            onConfirm = { title, category: TaskCategory, time ->
-                viewModel.addTask(title, category, time)
-                showAddDialog = false
-            }
-        )
-    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

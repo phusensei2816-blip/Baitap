@@ -38,7 +38,6 @@ import com.uth.uthauth.domain.model.TodoTask
 import com.uth.uthauth.ui.AppViewModelProvider
 import com.uth.uthauth.ui.components.BottomTab
 import com.uth.uthauth.ui.components.UthBottomBar
-import com.uth.uthauth.ui.home.components.AddTaskDialog
 import com.uth.uthauth.ui.home.components.LoadErrorCard
 import com.uth.uthauth.ui.home.components.TaskItem
 import com.uth.uthauth.ui.home.components.TaskSkeleton
@@ -49,13 +48,13 @@ import com.uth.uthauth.ui.list.components.SearchField
 fun ListRoute(
     onOpenTask: (String) -> Unit,
     onOpenHome: () -> Unit,
+    onOpenNotifications: () -> Unit,
+    onOpenAdd: () -> Unit,
     onOpenProfile: () -> Unit,
     viewModel: ListViewModel = viewModel(factory = AppViewModelProvider.Factory),
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val context = LocalContext.current
-    var showAddDialog by rememberSaveable { mutableStateOf(false) }
-    val comingSoonText = stringResource(R.string.coming_soon)
 
     LaunchedEffect(Unit) {
         viewModel.events.collect { Toast.makeText(context, it.asString(context), Toast.LENGTH_SHORT).show() }
@@ -67,28 +66,17 @@ fun ListRoute(
         onFilterChange = viewModel::onFilterChange,
         onToggleTask = viewModel::toggleTask,
         onOpenTask = onOpenTask,
-        onAddClick = { showAddDialog = true },
+        onAddClick = onOpenAdd,
         onTabClick = { tab ->
             when (tab) {
                 BottomTab.HOME -> onOpenHome()
                 BottomTab.LIST -> Unit
+                BottomTab.NOTIFICATIONS -> onOpenNotifications()
                 BottomTab.SETTINGS -> onOpenProfile()
-                BottomTab.NOTIFICATIONS ->
-                    Toast.makeText(context, comingSoonText, Toast.LENGTH_SHORT).show()
             }
         },
         onRetry = viewModel::refresh,
     )
-
-    if (showAddDialog) {
-        AddTaskDialog(
-            onDismiss = { showAddDialog = false },
-            onConfirm = { title, category: TaskCategory, time ->
-                viewModel.addTask(title, category, time)
-                showAddDialog = false
-            }
-        )
-    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

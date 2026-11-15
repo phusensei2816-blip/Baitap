@@ -96,9 +96,4 @@ class ListViewModel(
                 .onFailure { _events.send(it.toLoadError().toUiText()) }
         }
     }
-
-    fun addTask(title: String, category: TaskCategory, time: String) {
-        telemetry.logAddTask(category)
-        viewModelScope.launch { repository.add(title, category, time) }
-    }
 }

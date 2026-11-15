@@ -158,4 +158,42 @@
     <string name="subtask_name">Tên việc nhỏ</string>
     <string name="subtask_edit_desc">Sửa việc nhỏ</string>
     <string name="subtask_delete_desc">Xóa việc nhỏ</string>
+
+    <!-- Việc mới -->
+    <string name="add_screen_title">Việc mới</string>
+    <string name="add_cancel">Hủy</string>
+    <string name="add_save">Lưu</string>
+    <string name="add_field_name">Tên công việc</string>
+    <string name="add_name_hint">Ví dụ: Ôn chương 4 – Giải thuật</string>
+    <string name="add_field_note">Ghi chú</string>
+    <string name="add_note_hint">Thêm ghi chú (không bắt buộc)</string>
+    <string name="add_group">Nhóm</string>
+    <string name="add_day">Ngày</string>
+    <string name="add_time_label">Giờ</string>
+    <string name="add_remind">Nhắc tôi</string>
+    <string name="add_priority">Mức ưu tiên</string>
+    <string name="priority_short_low">Thấp</string>
+    <string name="priority_short_medium">Vừa</string>
+    <string name="priority_short_high">Cao</string>
+    <string name="add_submit">Lưu công việc</string>
+    <string name="add_created">Đã thêm công việc</string>
+    <string name="time_pick_ok">Chọn</string>
+
+    <!-- Thông báo -->
+    <string name="notif_title">Thông báo</string>
+    <string name="notif_mark_read">Đánh dấu đã đọc</string>
+    <string name="notif_unread_desc">Chưa đọc</string>
+    <string name="notif_due_soon_title">Sắp đến hạn</string>
+    <string name="notif_due_soon_msg">%1$s lúc %2$s.</string>
+    <string name="notif_overdue_title">Đã quá hạn</string>
+    <string name="notif_overdue_msg">Bài đọc tham khảo môn Mạng máy tính chưa xong.</string>
+    <string name="notif_done_title">Làm tốt lắm!</string>
+    <string name="notif_done_msg">Bạn đã xong %1$d việc trong sáng nay.</string>
+    <string name="notif_reminder_title">Nhắc việc</string>
+    <string name="notif_reminder_msg">Họp nhóm đồ án trong tuần này.</string>
+    <string name="notif_yesterday">Hôm qua</string>
+    <string name="notif_empty_title">Chưa có thông báo nào</string>
+    <string name="notif_empty_msg">Khi có việc sắp đến hạn, quá hạn hoặc lời nhắc, bạn sẽ thấy chúng ở đây.</string>
+    <string name="notif_empty_add">Thêm việc cần làm</string>
+    <string name="notif_empty_settings">Cài đặt nhắc việc</string>
 </resources>

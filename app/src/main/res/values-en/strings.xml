@@ -148,4 +148,40 @@
     <string name="subtask_name">Subtask name</string>
     <string name="subtask_edit_desc">Edit subtask</string>
     <string name="subtask_delete_desc">Delete subtask</string>
+
+    <string name="add_screen_title">New task</string>
+    <string name="add_cancel">Cancel</string>
+    <string name="add_save">Save</string>
+    <string name="add_field_name">Task name</string>
+    <string name="add_name_hint">E.g. Review chapter 4 – Algorithms</string>
+    <string name="add_field_note">Notes</string>
+    <string name="add_note_hint">Add a note (optional)</string>
+    <string name="add_group">Group</string>
+    <string name="add_day">Day</string>
+    <string name="add_time_label">Time</string>
+    <string name="add_remind">Remind me</string>
+    <string name="add_priority">Priority</string>
+    <string name="priority_short_low">Low</string>
+    <string name="priority_short_medium">Medium</string>
+    <string name="priority_short_high">High</string>
+    <string name="add_submit">Save task</string>
+    <string name="add_created">Task added</string>
+    <string name="time_pick_ok">OK</string>
+
+    <string name="notif_title">Notifications</string>
+    <string name="notif_mark_read">Mark all as read</string>
+    <string name="notif_unread_desc">Unread</string>
+    <string name="notif_due_soon_title">Due soon</string>
+    <string name="notif_due_soon_msg">%1$s at %2$s.</string>
+    <string name="notif_overdue_title">Overdue</string>
+    <string name="notif_overdue_msg">The Computer Networks reading is not done yet.</string>
+    <string name="notif_done_title">Well done!</string>
+    <string name="notif_done_msg">You finished %1$d tasks this morning.</string>
+    <string name="notif_reminder_title">Reminder</string>
+    <string name="notif_reminder_msg">Team project meeting this week.</string>
+    <string name="notif_yesterday">Yesterday</string>
+    <string name="notif_empty_title">No notifications yet</string>
+    <string name="notif_empty_msg">When a task is due soon, overdue or has a reminder, you will see it here.</string>
+    <string name="notif_empty_add">Add a task</string>
+    <string name="notif_empty_settings">Reminder settings</string>
 </resources>

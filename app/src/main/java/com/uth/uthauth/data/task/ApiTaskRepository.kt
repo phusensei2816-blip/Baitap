@@ -7,7 +7,7 @@ import com.uth.uthauth.data.remote.toLoadError
 import com.uth.uthauth.data.telemetry.AppTelemetry
 import com.uth.uthauth.domain.model.DayStat
 import com.uth.uthauth.domain.model.LoadState
-import com.uth.uthauth.domain.model.TaskCategory
+import com.uth.uthauth.domain.model.NewTask
 import com.uth.uthauth.domain.model.TaskChange
 import com.uth.uthauth.domain.model.TodoTask
 import java.io.IOException
@@ -140,15 +140,28 @@ class ApiTaskRepository(
         return Result.success(Unit)
     }
 
-    override suspend fun add(title: String, category: TaskCategory, time: String) {
-        val task = TodoTask(
+    override suspend fun create(task: NewTask): Result<Unit> {
+        try {
+            api.createTask(task.toDto())
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            report(e)
+            return Result.failure(e)
+        }
+        // API mock không lưu và luôn trả mẫu cố định -> giữ việc mới ở bộ nhớ với id cục bộ
+        val created = TodoTask(
             id = "$LOCAL_PREFIX${++localId}",
-            title = title.trim(),
-            category = category,
-            time = time,
-            date = LocalDate.now().toString(),
+            title = task.title,
+            category = task.category,
+            time = task.time,
+            note = task.note,
+            date = task.date,
+            priority = task.priority,
+            remind = task.remind,
         )
-        state.update { it + task }
+        state.update { it + created }
+        return Result.success(Unit)
     }
 
     private fun applyOverlay(server: List<TodoTask>): List<TodoTask> =
